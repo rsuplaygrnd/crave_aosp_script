@@ -14,10 +14,10 @@ out/target/product/X01BD
 rm -rf "${remove_lists[@]}"
 
 # init repo
-repo init --depth=1 --no-repo-verify --git-lfs -u https://github.com/rsuplaygrnd/crdroid_manifests.git -b 16.0 -g default,-mips,-darwin,-notdefault
+repo init --depth=1 --no-repo-verify --git-lfs -u https://github.com/crdroidandroid/android.git -b 15.0 -g default,-mips,-darwin,-notdefault
 
 # clone local manifests
-git clone https://github.com/rsuplaygrnd/local_manifest --depth 1 -b X01BD-16.0 .repo/local_manifests
+git clone https://github.com/rsuplaygrnd/local_manifest --depth 1 -b X01BD-bp1a .repo/local_manifests
 
 # repo sync
 [ -f /usr/bin/resync ] && /usr/bin/resync || /opt/crave/resync.sh
@@ -36,7 +36,7 @@ export TZ="Asia/Jakarta"
 source build/envsetup.sh
 
 # Build the ROM
-lunch lineage_X01BD-bp2a-user
+lunch lineage_X01BD-bp1a-userdebug
 make installclean
 mka bacon
 
