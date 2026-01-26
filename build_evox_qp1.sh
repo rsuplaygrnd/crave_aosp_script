@@ -17,7 +17,6 @@ vendor/extras
 vendor/addons
 vendor/asus/sdm660-common
 vendor/asus/X01BD
-
 )
 
 rm -rf "${remove_lists[@]}"
