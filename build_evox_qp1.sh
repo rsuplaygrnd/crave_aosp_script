@@ -1,21 +1,23 @@
 # cleanup
 remove_lists=(
 .repo/local_manifests
-prebuilts/clang/host/linux-x86
 device/qcom/sepolicy
 device/qcom/sepolicy-legacy-um
 device/qcom/sepolicy_vndr/legacy-um
 device/asus/sdm660-common
 device/asus/X01BD
-kernel/asus/sdm660
-out/target/product/X01BD
 external/chromium-webview
 external/rust
-vendor/extras
-vendor/addons
+kernel/asus/sdm660
+prebuilts/clang/host/linux-x86
 packages/modules/Nfc
 packages/apps/Nfc
 system/nfc
+vendor/extras
+vendor/addons
+vendor/asus/sdm660-common
+vendor/asus/X01BD
+
 )
 
 rm -rf "${remove_lists[@]}"
@@ -44,7 +46,7 @@ source build/envsetup.sh
 
 # Build the ROM
 lunch lineage_X01BD-bp3a-userdebug
-make installclean
+#make installclean
 m evolution
 
 [ -d out ] && ls out/target/product/X01BD
