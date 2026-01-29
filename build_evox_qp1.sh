@@ -23,7 +23,7 @@ vendor/asus/X01BD
 rm -rf "${remove_lists[@]}"
 
 # init repo
-repo init --depth=1 --no-repo-verify --git-lfs -u https://github.com/rsuplaygrnd/evo_manifest.git -b bq1 -g default,-mips,-darwin,-notdefault
+repo init --depth=1 --no-repo-verify --git-lfs -u https://github.com/Evolution-X/manifest.git -b bq1 -g default,-mips,-darwin,-notdefault
 
 # clone local manifests
 git clone https://github.com/rsuplaygrnd/local_manifest.git --depth 1 -b lineage-23.1 .repo/local_manifests
