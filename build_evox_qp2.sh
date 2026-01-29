@@ -28,7 +28,7 @@ echo "-- Initializing repo directory"
 repo init --depth=1 --no-repo-verify --git-lfs -u https://github.com/Evolution-X/manifest.git -b bq2 -g default,-mips,-darwin,-notdefault
 
 # clone local manifests
-git clone https://github.com/rsuplaygrnd/local_manifest.git --depth 1 -b lineage-23.1 .repo/local_manifests
+git clone https://github.com/rsuplaygrnd/local_manifest.git --depth 1 -b lineage-23.2 .repo/local_manifests
 
 # repo sync
 echo "-- Starting to sync"
