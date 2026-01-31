@@ -7,7 +7,6 @@ device/qcom/sepolicy_vndr/legacy-um
 device/asus/sdm660-common
 device/asus/X01BD
 external/chromium-webview
-external/rust
 kernel/asus/sdm660
 #out/target/product/X01BD
 prebuilts/clang/host/linux-x86
