@@ -9,7 +9,7 @@ device/asus/X01BD
 external/chromium-webview
 external/rust
 kernel/asus/sdm660
-out/target/product/X01BD
+#out/target/product/X01BD
 prebuilts/clang/host/linux-x86
 packages/modules/Nfc
 packages/apps/Nfc
@@ -49,7 +49,7 @@ source build/envsetup.sh
 
 # Build the ROM
 lunch lineage_X01BD-bp4a-userdebug
-make installclean
+#make installclean
 m evolution
 
 [ -d out ] && ls out/target/product/X01BD
