@@ -51,8 +51,8 @@ bash $(pwd)/keys.sh
 cd ../../..
 
 # Set up build environment
-export BUILD_USERNAME=rsuntk 
-export BUILD_HOSTNAME=nobody 
+export BUILD_USERNAME=rsuntk
+export BUILD_HOSTNAME=nobody
 export TZ="Asia/Jakarta"
 source build/envsetup.sh
 
@@ -62,3 +62,8 @@ make installclean
 m evolution
 
 [ -d out ] && ls out/target/product/X01BD
+
+# pack signing key
+echo "-- Packing signing key"
+cd vendor/evolution-priv/keys && zip -r9 * ../../../evolution-priv_keys.zip && cd ../../..
+[ ! -f $(pwd)/evolution-priv_keys.zip ] && exit 1
