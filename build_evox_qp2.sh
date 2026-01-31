@@ -8,7 +8,7 @@ device/asus/sdm660-common
 device/asus/X01BD
 external/chromium-webview
 kernel/asus/sdm660
-#out/target/product/X01BD
+out/target/product/X01BD
 prebuilts/clang/host/linux-x86
 packages/modules/Nfc
 packages/apps/Nfc
