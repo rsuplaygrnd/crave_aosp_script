@@ -18,6 +18,7 @@ vendor/addons
 vendor/asus/sdm660-common
 vendor/asus/X01BD
 vendor/lineage-priv/keys
+vendor/evolution-priv/keys
 )
 
 echo "-- Removing ${remove_lists[@]}"
@@ -40,14 +41,6 @@ if [ -d kernel/asus/sdm660 ]; then
 	curl -LSs "https://raw.githubusercontent.com/rsuntk/KernelSU/main/kernel/setup.sh" | bash -s main
 	cd ../../..
 fi
-
-# setup signing keys
-echo "-- Making signing key"
-rm -rf vendor/evolution-priv/keys
-git clone https://github.com/Evolution-X/vendor_evolution-priv_keys-template vendor/evolution-priv/keys
-cd vendor/evolution-priv/keys
-bash $(pwd)/keys.sh
-cd ../../..
 
 # Set up build environment
 export BUILD_USERNAME=rsuntk
