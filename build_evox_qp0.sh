@@ -1,15 +1,14 @@
 # cleanup
 remove_lists=(
 .repo/local_manifests
-device/asus/sdm660-common
-device/asus/X01BD
-device/lineage/sepolicy
 device/qcom/sepolicy
 device/qcom/sepolicy-legacy-um
 device/qcom/sepolicy_vndr/legacy-um
+device/asus/sdm660-common
+device/asus/X01BD
 external/chromium-webview
 kernel/asus/sdm660
-#out/target/product/X01BD
+out/target/product/X01BD
 prebuilts/clang/host/linux-x86
 packages/modules/Nfc
 packages/apps/Nfc
@@ -19,7 +18,6 @@ vendor/addons
 vendor/asus/sdm660-common
 vendor/asus/X01BD
 vendor/lineage-priv/keys
-vendor/evolution-priv/keys
 )
 
 echo "-- Removing ${remove_lists[@]}"
@@ -27,10 +25,10 @@ rm -rf "${remove_lists[@]}"
 
 # init repo
 echo "-- Initializing repo directory"
-repo init --depth=1 --no-repo-verify --git-lfs -u https://github.com/Evolution-X/manifest.git -b bq2 -g default,-mips,-darwin,-notdefault
+repo init --depth=1 --no-repo-verify --git-lfs -u https://github.com/Evolution-X/manifest.git -b bka -g default,-mips,-darwin,-notdefault
 
 # clone local manifests
-git clone https://github.com/rsuplaygrnd/local_manifest.git --depth 1 -b lineage-23.2 .repo/local_manifests
+git clone https://github.com/rsuplaygrnd/local_manifest.git --depth 1 -b lineage-23.0 .repo/local_manifests
 
 # repo sync
 echo "-- Starting to sync"
@@ -43,6 +41,14 @@ if [ -d kernel/asus/sdm660 ]; then
 	cd ../../..
 fi
 
+# setup signing keys
+echo "-- Making signing key"
+rm -rf vendor/evolution-priv/keys
+git clone https://github.com/Evolution-X/vendor_evolution-priv_keys-template vendor/evolution-priv/keys
+cd vendor/evolution-priv/keys
+bash $(pwd)/keys.sh
+cd ../../..
+
 # Set up build environment
 export BUILD_USERNAME=rsuntk
 export BUILD_HOSTNAME=nobody
@@ -50,8 +56,8 @@ export TZ="Asia/Jakarta"
 source build/envsetup.sh
 
 # Build the ROM
-lunch lineage_X01BD-bp4a-userdebug
-#make installclean
+lunch lineage_X01BD-bp2a-userdebug
+make installclean
 m evolution
 
 [ -d out ] && ls out/target/product/X01BD
