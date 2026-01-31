@@ -27,7 +27,7 @@ rm -rf "${remove_lists[@]}"
 
 # init repo
 echo "-- Initializing repo directory"
-repo init --depth=1 --no-repo-verify --git-lfs -u https://github.com/Evolution-X/manifest.git -b bq2 -g default,-mips,-darwin,-notdefault
+repo init --depth=1 --no-repo-verify --git-lfs -u https://github.com/rsuntk/evo_manifest_bq2.git -b bq2 -g default,-mips,-darwin,-notdefault
 
 # clone local manifests
 git clone https://github.com/rsuplaygrnd/local_manifest.git --depth 1 -b lineage-23.2 .repo/local_manifests
