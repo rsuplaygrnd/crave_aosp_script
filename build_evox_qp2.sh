@@ -9,7 +9,7 @@ device/qcom/sepolicy-legacy-um
 device/qcom/sepolicy_vndr/legacy-um
 external/chromium-webview
 kernel/asus/sdm660
-#out/target/product/X01BD
+out/target/product/X01BD
 prebuilts/clang/host/linux-x86
 packages/modules/Nfc
 packages/apps/Nfc
@@ -22,12 +22,20 @@ vendor/lineage-priv/keys
 vendor/evolution-priv/keys
 )
 
+do_reclone() {
+	if [ -d "$3" ]; then
+		rm -rf $3
+		echo "-- Recloning $3 ..."
+		git clone --depth=1 $1 -b $2 $3
+	fi
+}
+
 echo "-- Removing ${remove_lists[@]}"
 rm -rf "${remove_lists[@]}"
 
 # init repo
 echo "-- Initializing repo directory"
-repo init --depth=1 --no-repo-verify --git-lfs -u https://github.com/rsuntk/evo_manifest_bq2.git -b bq2 -g default,-mips,-darwin,-notdefault
+repo init --depth=1 --no-repo-verify --git-lfs -u https://github.com/Evolution-X/manifest.git -b bq2 -g default,-mips,-darwin,-notdefault
 
 # clone local manifests
 git clone https://github.com/rsuplaygrnd/local_manifest.git --depth 1 -b lineage-23.2 .repo/local_manifests
@@ -43,6 +51,9 @@ if [ -d kernel/asus/sdm660 ]; then
 	cd ../../..
 fi
 
+# Setup our device/lineage/sepolicy fork
+do_reclone https://github.com/rsuplaygrnd/device_evolution_sepolicy.git bq2 device/lineage/sepolicy
+
 # Set up build environment
 export BUILD_USERNAME=rsuntk
 export BUILD_HOSTNAME=nobody
@@ -51,7 +62,7 @@ source build/envsetup.sh
 
 # Build the ROM
 lunch lineage_X01BD-bp4a-userdebug
-#make installclean
+make installclean
 m evolution
 
 [ -d out ] && ls out/target/product/X01BD
