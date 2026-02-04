@@ -1,33 +1,33 @@
 # cleanup
 remove_lists=(
-.repo/local_manifests
-device/asus/sdm660-common
-device/asus/X01BD
-device/lineage/sepolicy
-device/qcom/sepolicy
-device/qcom/sepolicy-legacy-um
-device/qcom/sepolicy_vndr/legacy-um
-external/chromium-webview
-kernel/asus/sdm660
-out/target/product/X01BD
-prebuilts/clang/host/linux-x86
-packages/modules/Nfc
-packages/apps/Nfc
-system/nfc
-vendor/extras
-vendor/addons
-vendor/asus/sdm660-common
-vendor/asus/X01BD
-vendor/lineage-priv/keys
-vendor/evolution-priv/keys
+    .repo/local_manifests
+    device/asus/sdm660-common
+    device/asus/X01BD
+    device/lineage/sepolicy
+    device/qcom/sepolicy
+    device/qcom/sepolicy-legacy-um
+    device/qcom/sepolicy_vndr/legacy-um
+    external/chromium-webview
+    kernel/asus/sdm660
+    out/target/product/X01BD
+    prebuilts/clang/host/linux-x86
+    packages/modules/Nfc
+    packages/apps/Nfc
+    system/nfc
+    vendor/extras
+    vendor/addons
+    vendor/asus/sdm660-common
+    vendor/asus/X01BD
+    vendor/lineage-priv/keys
+    vendor/evolution-priv/keys
 )
 
 do_reclone() {
-	if [ -d "$3" ]; then
-		rm -rf $3
-		echo "-- Recloning $3 ..."
-		git clone --depth=1 $1 -b $2 $3
-	fi
+    if [ -d "$3" ]; then
+        rm -rf $3
+        echo "-- Recloning $3 ..."
+        git clone --depth=1 $1 -b $2 $3
+    fi
 }
 
 echo "-- Removing ${remove_lists[@]}"
@@ -45,10 +45,10 @@ echo "-- Starting to sync"
 [ -f /usr/bin/resync ] && /usr/bin/resync || /opt/crave/resync.sh
 
 # setup KernelSU
-if [ -d kernel/asus/sdm660 ]; then 
-	cd kernel/asus/sdm660
-	curl -LSs "https://raw.githubusercontent.com/rsuntk/KernelSU/main/kernel/setup.sh" | bash -s main
-	cd ../../..
+if [ -d kernel/asus/sdm660 ]; then
+    cd kernel/asus/sdm660
+    curl -LSs "https://raw.githubusercontent.com/rsuntk/KernelSU/main/kernel/setup.sh" | bash -s main
+    cd ../../..
 fi
 
 # Setup our device/lineage/sepolicy fork

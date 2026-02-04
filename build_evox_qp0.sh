@@ -1,23 +1,23 @@
 # cleanup
 remove_lists=(
-.repo/local_manifests
-device/qcom/sepolicy
-device/qcom/sepolicy-legacy-um
-device/qcom/sepolicy_vndr/legacy-um
-device/asus/sdm660-common
-device/asus/X01BD
-external/chromium-webview
-kernel/asus/sdm660
-out/target/product/X01BD
-prebuilts/clang/host/linux-x86
-packages/modules/Nfc
-packages/apps/Nfc
-system/nfc
-vendor/extras
-vendor/addons
-vendor/asus/sdm660-common
-vendor/asus/X01BD
-vendor/lineage-priv/keys
+    .repo/local_manifests
+    device/qcom/sepolicy
+    device/qcom/sepolicy-legacy-um
+    device/qcom/sepolicy_vndr/legacy-um
+    device/asus/sdm660-common
+    device/asus/X01BD
+    external/chromium-webview
+    kernel/asus/sdm660
+    out/target/product/X01BD
+    prebuilts/clang/host/linux-x86
+    packages/modules/Nfc
+    packages/apps/Nfc
+    system/nfc
+    vendor/extras
+    vendor/addons
+    vendor/asus/sdm660-common
+    vendor/asus/X01BD
+    vendor/lineage-priv/keys
 )
 
 echo "-- Removing ${remove_lists[@]}"
@@ -35,10 +35,10 @@ echo "-- Starting to sync"
 [ -f /usr/bin/resync ] && /usr/bin/resync || /opt/crave/resync.sh
 
 # setup KernelSU
-if [ -d kernel/asus/sdm660 ]; then 
-	cd kernel/asus/sdm660
-	curl -LSs "https://raw.githubusercontent.com/rsuntk/KernelSU/main/kernel/setup.sh" | bash -s main
-	cd ../../..
+if [ -d kernel/asus/sdm660 ]; then
+    cd kernel/asus/sdm660
+    curl -LSs "https://raw.githubusercontent.com/rsuntk/KernelSU/main/kernel/setup.sh" | bash -s main
+    cd ../../..
 fi
 
 # setup signing keys
