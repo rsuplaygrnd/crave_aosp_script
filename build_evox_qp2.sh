@@ -23,11 +23,9 @@ remove_lists=(
 )
 
 do_reclone() {
-    if [ -d "$3" ]; then
-        rm -rf $3
-        echo "-- Recloning $3 ..."
-        git clone --depth=1 $1 -b $2 $3
-    fi
+    rm -rf $3
+    echo "-- Recloning $3 ..."
+    git clone --depth=1 $1 -b $2 $3
 }
 
 echo "-- Removing ${remove_lists[@]}"
