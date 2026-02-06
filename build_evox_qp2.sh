@@ -52,6 +52,12 @@ fi
 # Setup our device/lineage/sepolicy fork
 do_reclone https://github.com/rsuplaygrnd/device_evolution_sepolicy.git bq2 device/lineage/sepolicy
 
+# Setup our signing key, overriding existing signing key (yukiprjkt)
+rm -rf vendor/lineage-priv/keys
+git clone https://gitlab.com/rsuntk-asus-sdm660/signing_template.git vendor/lineage-priv/keys
+cd vendor/lineage-priv/keys && bash $(pwd)/keys.sh
+cd ../../..
+
 # Set up build environment
 export BUILD_USERNAME=rsuntk
 export BUILD_HOSTNAME=nobody
