@@ -1,7 +1,6 @@
 # cleanup
 remove_lists=(
     .repo/local_manifests
-    device/asus/sdm660-common
     device/asus/X01BD
     device/lineage/sepolicy
     device/qcom/sepolicy
@@ -16,7 +15,6 @@ remove_lists=(
     system/nfc
     vendor/extras
     vendor/addons
-    vendor/asus/sdm660-common
     vendor/asus/X01BD
     vendor/lineage-priv/keys
     vendor/evolution-priv/keys
@@ -50,7 +48,7 @@ if [ -d kernel/asus/sdm660 ]; then
 fi
 
 # Setup our device/lineage/sepolicy fork
-do_reclone https://github.com/rsuplaygrnd/device_evolution_sepolicy.git bq2 device/lineage/sepolicy
+#do_reclone https://github.com/rsuplaygrnd/device_evolution_sepolicy.git bq2 device/lineage/sepolicy
 
 # Setup our signing key, overriding existing signing key (yukiprjkt)
 rm -rf vendor/lineage-priv/keys
