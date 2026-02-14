@@ -34,7 +34,7 @@ echo "-- Initializing repo directory"
 repo init --depth=1 --no-repo-verify --git-lfs -u https://github.com/ProjectInfinity-X/manifest.git -b 16 -g default,-mips,-darwin,-notdefault
 
 # clone local manifests
-git clone https://github.com/rsuplaygrnd/local_manifest.git --depth 1 -b infinity_qpr2 .repo/local_manifests
+git clone https://github.com/rsuplaygrnd/local_manifest.git --depth 1 -b infinity-qpr2 .repo/local_manifests
 
 # repo sync
 echo "-- Starting to sync"
