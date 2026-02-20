@@ -49,6 +49,8 @@ fi
 
 # Setup our device/lineage/sepolicy fork
 #do_reclone https://github.com/rsuplaygrnd/device_evolution_sepolicy.git bq2 device/lineage/sepolicy
+# Setup extra flags
+do_reclone https://gitlab.com/rsuntk-asus-sdm660/android_device_asus_X01BD-ext.git evolution-gapps device/asus/X01BD-ext
 
 # Setup our signing key, overriding existing signing key (yukiprjkt)
 rm -rf vendor/lineage-priv/keys
