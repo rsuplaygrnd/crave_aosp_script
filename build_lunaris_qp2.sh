@@ -19,6 +19,7 @@ remove_lists=(
     vendor/asus/X01BD
     vendor/lineage-priv/keys
     vendor/evolution-priv/keys
+    vendor/rsuntk-priv/keys
 )
 
 do_reclone() {
@@ -52,7 +53,7 @@ fi
 #do_reclone https://github.com/rsuplaygrnd/device_evolution_sepolicy.git bq2 device/lineage/sepolicy
 
 # Setup our signing key, overriding existing signing key (yukiprjkt)
-do_reclone https://github.com/rsuntk/vendor_lineage-priv.git master vendor/lineage-priv/keys
+do_reclone https://github.com/rsuntk/vendor_lineage-priv.git master vendor/rsuntk-priv/keys
 
 # Setup extra value for current device tree
 do_reclone https://gitlab.com/rsuntk-asus-sdm660/android_device_asus_X01BD-ext.git lunaris-vanilla device/asus/X01BD-ext
