@@ -53,6 +53,7 @@ fi
 
 # Setup our signing key, overriding existing signing key (yukiprjkt)
 do_reclone https://github.com/rsuntk/vendor_lineage-priv.git master vendor/rsuntk-priv/keys
+
 # Set up build environment
 export BUILD_USERNAME=rsuntk
 export BUILD_HOSTNAME=nobody
