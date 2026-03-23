@@ -48,6 +48,10 @@ if [ -d kernel/asus/sdm660 ]; then
     cd ../../..
 fi
 
+# Symbolic link
+sudo ln -sf /usr/lib/x86_64-linux-gnu/libncurses.so.6 /usr/lib/x86_64-linux-gnu/libncurses.so.5
+sudo ln -sf /usr/lib/x86_64-linux-gnu/libtinfo.so.6   /usr/lib/x86_64-linux-gnu/libtinfo.so.5
+
 # Setup our device/lineage/sepolicy fork
 #do_reclone https://github.com/rsuplaygrnd/device_evolution_sepolicy.git bq2 device/lineage/sepolicy
 
