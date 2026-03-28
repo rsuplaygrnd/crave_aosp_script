@@ -41,11 +41,11 @@ git clone https://github.com/rsuntk-asus-sdm660/local_manifests.git --depth 1 -b
 [ -f /usr/bin/resync ] && /usr/bin/resync || /opt/crave/resync.sh
 
 # setup KernelSU
-if [ -d kernel/asus/sdm660 ]; then
-    cd kernel/asus/sdm660
-    curl -LSs "https://raw.githubusercontent.com/rsuntk/KernelSU/main/kernel/setup.sh" | bash -s xxksu
-    cd ../../..
-fi
+#if [ -d kernel/asus/sdm660 ]; then
+#    cd kernel/asus/sdm660
+#    curl -LSs "https://raw.githubusercontent.com/rsuntk/KernelSU/main/kernel/setup.sh" | bash -s xxksu
+#    cd ../../..
+#fi
 
 # Symbolic link
 sudo ln -sf /usr/lib/x86_64-linux-gnu/libncurses.so.6 /usr/lib/x86_64-linux-gnu/libncurses.so.5
