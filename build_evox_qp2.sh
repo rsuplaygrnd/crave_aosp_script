@@ -54,6 +54,9 @@ sudo ln -sf /usr/lib/x86_64-linux-gnu/libtinfo.so.6 /usr/lib/x86_64-linux-gnu/li
 # Setup our device/lineage/sepolicy fork
 #do_reclone https://github.com/rsuplaygrnd/device_evolution_sepolicy.git bq2 device/lineage/sepolicy
 
+# Our fork of vendor/apn
+do_reclone https://github.com/rsuntk-asus-sdm660/android_vendor_apn.git main vendor/apn
+
 # Setup extra flags
 do_reclone https://github.com/rsuntk-asus-sdm660/android_device_asus_X01BD-extra.git evolution-gapps device/asus/X01BD-extra
 
