@@ -34,13 +34,10 @@ rm -rf "${remove_lists[@]}"
 echo "-- Initializing repo directory"
 repo init --depth=1 --no-repo-verify --git-lfs -u https://github.com/Evolution-X/manifest.git -b bq2 -g default,-mips,-darwin,-notdefault
 
-# repo sync 1
-[ -f /usr/bin/resync ] && /usr/bin/resync || /opt/crave/resync.sh
-
 # clone local manifests
 git clone https://github.com/rsuntk-asus-sdm660/local_manifests.git --depth 1 -b lineage-23.2 .repo/local_manifests
 
-# repo sync 2
+# repo sync
 [ -f /usr/bin/resync ] && /usr/bin/resync || /opt/crave/resync.sh
 
 # setup KernelSU
