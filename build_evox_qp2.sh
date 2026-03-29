@@ -7,6 +7,8 @@ remove_lists=(
     device/qcom/sepolicy-legacy-um
     device/qcom/sepolicy_vndr/legacy-um
     external/chromium-webview
+    hardware/lineage/interfaces
+    hardware/qcom-caf/sdm660/audio
     kernel/asus/sdm660
     out/target/product/X01BD
     prebuilts/clang/host/linux-x86
