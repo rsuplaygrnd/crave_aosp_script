@@ -29,7 +29,7 @@ do_reclone() {
     git clone --depth=1 $1 -b $2 $3
 }
 
-echo "-- Removing ${remove_lists[@]}"
+echo "-- Cleaning up: ${remove_lists[@]}"
 rm -rf "${remove_lists[@]}"
 
 # init repo
@@ -42,25 +42,12 @@ git clone https://github.com/rsuntk-asus-sdm660/local_manifests.git --depth 1 -b
 # repo sync
 [ -f /usr/bin/resync ] && /usr/bin/resync || /opt/crave/resync.sh
 
-# setup KernelSU
-#if [ -d kernel/asus/sdm660 ]; then
-#    cd kernel/asus/sdm660
-#    curl -LSs "https://raw.githubusercontent.com/rsuntk/KernelSU/main/kernel/setup.sh" | bash -s xxksu
-#    cd ../../..
-#fi
-
-# Symbolic link
+# Symlink libncurses
 sudo ln -sf /usr/lib/x86_64-linux-gnu/libncurses.so.6 /usr/lib/x86_64-linux-gnu/libncurses.so.5
 sudo ln -sf /usr/lib/x86_64-linux-gnu/libtinfo.so.6 /usr/lib/x86_64-linux-gnu/libtinfo.so.5
 
-# Setup our device/lineage/sepolicy fork
-#do_reclone https://github.com/rsuplaygrnd/device_evolution_sepolicy.git bq2 device/lineage/sepolicy
-
 # Setup extra flags
 do_reclone https://github.com/rsuntk-asus-sdm660/android_device_asus_X01BD-extra.git evolution-gapps device/asus/X01BD-extra
-
-# Setup our signing key, overriding existing signing key (yukiprjkt)
-#do_reclone https://github.com/rsuntk/vendor_lineage-priv.git master vendor/rsuntk-priv/keys
 
 # Set up build environment
 export BUILD_USERNAME=rsuntk
@@ -69,7 +56,7 @@ export TZ="Asia/Jakarta"
 source build/envsetup.sh
 
 # Build the ROM
-lunch lineage_X01BD-bp4a-user
+lunch lineage_X01BD-bp4a-userdebug
 make installclean
 m evolution
 
