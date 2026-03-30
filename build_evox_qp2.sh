@@ -9,7 +9,7 @@ remove_lists=(
     external/chromium-webview
     hardware/lineage/interfaces
     hardware/qcom-caf/sdm660/audio
-    kernel/asus/sdm660
+    kernel/asus
     out/target/product/X01BD
     prebuilts/clang/host/linux-x86
     packages/modules/Nfc
@@ -17,7 +17,7 @@ remove_lists=(
     system/nfc
     vendor/extras
     vendor/addons
-    vendor/asus/X01BD
+    vendor/asus
     vendor/lineage-priv/keys
     vendor/evolution-priv/keys
     vendor/rsuntk-priv/keys
